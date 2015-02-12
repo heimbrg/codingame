@@ -10,6 +10,7 @@ for i in xrange(N):
     LAND_X, LAND_Y = [int(i) for i in raw_input().split()]
 
 # game loop
+j=0
 while 1:
     # HS: the horizontal speed (in m/s), can be negative.
     # VS: the vertical speed (in m/s), can be negative.
@@ -20,10 +21,13 @@ while 1:
     
     # Write an action using print
     # To debug: print >> sys.stderr, "Debug messages..."
-    if VS < -20:
+    j += 1
+    if VS < -20 and j>12:
         thrust=4
-    else:
+    elif j>12:
         thrust=3
+    else:
+        thrust=0
     print "0 %s" % thrust
     #print "-20 3" # R P. R is the desired rotation angle. P is the desired thrust power.
     
